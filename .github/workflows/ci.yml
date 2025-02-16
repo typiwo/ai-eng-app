@@ -1,0 +1,28 @@
+name: CI  # Name of the workflow
+
+on:   # defines events that triggers the workflow
+  push:   # push to main branch
+    branches: [ main ]
+  pull_request:  # pull request to main branch
+    branches: [ main ]
+
+jobs:  # defines what GitHub Actions should do
+  build-and-test:
+    runs-on: ubuntu-latest  # runs on Ubuntu OS
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v3  # checks out my repo so the workflow can access my code
+
+      - name: Set up Python
+        uses: actions/setup-python@v3  # installs python in virtual env
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install pytest
+
+      - name: Run tests
+        run: |
+          pytest
