@@ -25,4 +25,5 @@ jobs:  # defines what GitHub Actions should do
 
       - name: Run tests
         run: |
+          export PYTHONPATH=$PYTHONPATH:./
           pytest
