@@ -22,6 +22,10 @@ jobs:  # defines what GitHub Actions should do
       - name: Install dependencies
         run: |
           pip install pytest
+          pip install fastapi uvicorn
+          pip install pillow
+          pip install python-multipart
+          pip install httpx
 
       - name: Run tests
         run: |
