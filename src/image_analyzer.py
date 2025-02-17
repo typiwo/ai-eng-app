@@ -1,5 +1,6 @@
 import os
 from PIL import Image
+from src.llm import get_llm_response
 
 def analyze_image(image_path: str, question: str) -> str:
     """
@@ -19,9 +20,11 @@ def analyze_image(image_path: str, question: str) -> str:
     except Exception:
         # If the file can't be opened as an image, raise an error
         raise ValueError(f"Invalid image file: {image_path}")
+    
+    # 3. Create a context string from the image info
+    context = f"Image format: {image_format}, Size: {width}x{height}"
 
-    # 3. Return a stub analysis
-    return (
-        f"This file is a '{image_format}' image of size {width}x{height}. "
-        f"Question: {question}"
-    )
+    # 4. Get the LLM response using our mock function
+    llm_response = get_llm_response(question, context)
+
+    return llm_response
