@@ -25,8 +25,8 @@ jobs:  # defines what GitHub Actions should do
           pip install fastapi uvicorn
           pip install pillow
           pip install python-multipart
-          pip intsall httpx
-          
+          pip install httpx
+
       - name: Run tests
         run: |
           export PYTHONPATH=$PYTHONPATH:./
