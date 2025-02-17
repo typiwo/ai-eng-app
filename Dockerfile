@@ -10,7 +10,7 @@ COPY requirements.txt /app/requirements.txt
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Cop the entire project into the container
+# Copy the entire project into the container
 COPY . /app
 
 # Expose port 8000 (the port uvicorn will listen on)
