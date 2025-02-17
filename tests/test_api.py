@@ -15,7 +15,7 @@ def test_analyze_endpoint_valid_image(tmp_path):
     import shutil
     import os
     
-    src_file = os.path.join("test_data", "test_image.jpg")
+    src_file = "test_data/test_image.JPG"
     dst_file = tmp_path / "image.jpg"
     shutil.copy(src_file, dst_file)
 
